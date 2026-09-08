@@ -11,7 +11,14 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #E8EDF2;
+  background-color: #FAF7F3;
   
+}
+
+.NAME {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #BF0404;
 }
 
