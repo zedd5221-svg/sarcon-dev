@@ -1,15 +1,16 @@
 
-
+import Navbar from "./components/ui/navbar";
 import Lanyard from "./components/Lanyard";
 
 
 function App() {
   return (
     <main>
+      
 
-      <section className="w-screen h-screen flex align-center">
+      
           
-
+<Navbar />
 
 
         {/* Lanyard */}
@@ -19,7 +20,7 @@ function App() {
             gravity={[0, -40, 0]}
           />
         </div>
-      </section>
+      
 
 
 
