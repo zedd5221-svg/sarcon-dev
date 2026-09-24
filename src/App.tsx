@@ -8,14 +8,7 @@ function App() {
     <main>
 
       <section className="w-screen h-screen flex align-center">
-          <div className="w-full h-full relative">
-            <div className="NAME p-4">SARCON</div>
-            <nav className="">
-              <a href="#" className="hover:underline">HOME</a>
-              <a href="#" className="hover:underline">ABOUT</a>
-              <a href="#" className="hover:underline">WORKS</a>
-            </nav>
-          </div>
+          
 
 
 
