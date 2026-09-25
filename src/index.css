@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oswald:wght@200..700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,14 +12,12 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #BF0404;
   background-color: #FAF7F3;
+  font-family: "Oswald", sans-serif;
+  
   
 }
 
-.NAME {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  color: #BF0404;
-}
+
 
