@@ -7,7 +7,7 @@ function Hero() {
         </p>
       </div>
       <div className="order-1 flex items-center justify-center p-4 md:order-2 md:p-16">
-        <img src="./public/picture.jpg" alt="image not found" className="aspect-square h-auto w-[200px] rounded-full object-cover transition-[filter] duration-300 hover:blur-[4px] md:aspect-auto md:w-[300px] md:rounded-[20px]" />
+        <img src={`${import.meta.env.BASE_URL}picture.jpg`} alt="image not found" className="aspect-square h-auto w-[200px] rounded-full object-cover transition-[filter] duration-300 hover:blur-[4px] md:aspect-auto md:w-[300px] md:rounded-[20px]" />
       </div>
     </section>
   );
