@@ -2,6 +2,7 @@
 import Navbar from "./components/ui/navbar";
 import Lanyard from "./components/Lanyard";
 import Hero from "./components/Hero";
+import Techstack from "./components/Techstack";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 <Navbar />
       <div className="relative z-0">
         <Hero />
+        <Techstack />
       </div>
 
 

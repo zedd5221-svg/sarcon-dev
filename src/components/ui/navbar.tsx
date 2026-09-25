@@ -4,7 +4,7 @@ function navbar() {
       <div className="flex items-start justify-start"><span className="font-bold text-lg sm:text-[2vw]">SARCON</span></div>
        <div className="flex items-start justify-end gap-4">
            <a href="#" className="pointer-events-auto relative text-sm sm:text-[1.50vw] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100">HOME</a> 
-           <a href="#" className="pointer-events-auto relative text-sm sm:text-[1.50vw] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100">ABOUT</a> 
+           <a href="#" className="pointer-events-auto relative text-sm sm:text-[1.50vw] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100">STACK</a> 
            <a href="#" className="pointer-events-auto relative text-sm sm:text-[1.50vw] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100">WORKS</a>
         </div>
          <div className="flex items-end justify-start"><a href="#" className="pointer-events-auto relative font-bold text-sm sm:text-[1.50vw] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100">CONTACTS</a></div>
