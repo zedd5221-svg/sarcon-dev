@@ -7,7 +7,7 @@ function Hero() {
         </p>
       </div>
       <div className="flex items-center justify-center p-4 md:p-16">
-        <img src="./src/assets/picture.jpg" alt="Hero Image" className="h-auto w-[300px] rounded-[20px] object-cover transition-[filter] duration-300 hover:blur-[4px]" />
+        <img src="./public/picture.jpg" alt="Hero Image" className="h-auto w-[300px] rounded-[20px] object-cover transition-[filter] duration-300 hover:blur-[4px]" />
       </div>
     </section>
   );
