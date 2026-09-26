@@ -63,38 +63,35 @@ function RandomScrollTheme() {
   if (consent !== "pending") return null;
 
   return (
-    <div className="fixed inset-0 z-[100000] flex items-center justify-center bg-black/70 p-5 backdrop-blur-sm">
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[100000] p-3 sm:p-5">
       <section
         aria-labelledby="flash-warning-title"
         aria-describedby="flash-warning-description"
-        aria-modal="true"
-        className="w-full max-w-md rounded-xl border border-black/10 bg-[#FAF7F3] p-6 text-[#202020] shadow-2xl sm:p-8"
-        role="dialog"
+        className="pointer-events-auto mx-auto flex w-full max-w-4xl flex-col gap-3 rounded-xl border border-black/10 bg-[#FAF7F3]/95 p-3 text-[#202020] shadow-xl backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-4"
+        role="region"
       >
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#BF0404]">
-          Motion warning
-        </p>
-        <h2 className="text-2xl font-bold" id="flash-warning-title">
-          Flashing effect
-        </h2>
-        <p className="mt-3 text-sm leading-relaxed" id="flash-warning-description">
-          Scrolling can trigger several rapid full-screen flashes and black-and-white theme changes. These effects may affect people with photosensitivity. Enable them only if you are comfortable viewing flashing content.
-        </p>
-        <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+        <div className="min-w-0 flex-1">
+          <h2 className="text-sm font-bold text-[#BF0404]" id="flash-warning-title">
+            Flashing effect warning
+          </h2>
+          <p className="mt-1 text-xs leading-snug sm:text-sm" id="flash-warning-description">
+            Scrolling triggers up to three flashes and theme changes, which may affect people with photosensitivity.
+          </p>
+        </div>
+        <div className="flex shrink-0 flex-col-reverse gap-2 sm:flex-row">
           <button
-            autoFocus
-            className="rounded-md border border-black/20 px-4 py-2 text-sm font-semibold transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF0404]"
+            className="rounded-md border border-black/20 px-3 py-2 text-xs font-semibold transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF0404] sm:text-sm"
             onClick={() => setConsent("declined")}
             type="button"
           >
-            Continue without flashes
+            No flashes
           </button>
           <button
-            className="rounded-md bg-[#BF0404] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#970303] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF0404]"
+            className="rounded-md bg-[#BF0404] px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#970303] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF0404] sm:text-sm"
             onClick={() => setConsent("accepted")}
             type="button"
           >
-            OK, enable flashes
+            OK, enable
           </button>
         </div>
       </section>

@@ -19,6 +19,10 @@ body,
   
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 #root {
@@ -43,6 +47,57 @@ html.random-scroll-flashing::after {
   animation: scroll-theme-flash 140ms steps(1, end) 3;
 }
 
+.three-box-loader {
+  position: relative;
+  width: 5.5rem;
+  height: 2rem;
+}
+
+.three-box-loader span {
+  position: absolute;
+  top: 50%;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 0.15rem;
+  background: #bf0404;
+}
+
+.three-box-loader span:nth-child(1) {
+  left: 0.4rem;
+  transform: translateY(-50%);
+  animation: three-box-jab-right 0.9s ease-in-out infinite;
+}
+
+.three-box-loader span:nth-child(2) {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: three-box-dodge 0.9s ease-in-out infinite;
+}
+
+.three-box-loader span:nth-child(3) {
+  right: 0.4rem;
+  transform: translateY(-50%);
+  animation: three-box-jab-left 0.9s ease-in-out infinite;
+}
+
+@keyframes three-box-jab-right {
+  0%, 100% { transform: translateY(-50%); }
+  25%, 45% { transform: translate(0.65rem, -65%) rotate(18deg); }
+  70% { transform: translateY(-50%) rotate(-8deg); }
+}
+
+@keyframes three-box-dodge {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  25%, 45% { transform: translate(-50%, -65%) scale(0.82); }
+  65% { transform: translate(-50%, -40%) scale(1.08); }
+}
+
+@keyframes three-box-jab-left {
+  0%, 50% { transform: translateY(-50%); }
+  72%, 90% { transform: translate(-0.65rem, -65%) rotate(-18deg); }
+  100% { transform: translateY(-50%); }
+}
+
 @keyframes scroll-theme-flash {
   0%,
   44%,
@@ -53,6 +108,11 @@ html.random-scroll-flashing::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .three-box-loader,
+  .three-box-loader span {
+    animation: none;
+  }
+
   html.random-scroll-flashing::after {
     animation: none;
     opacity: 0;
