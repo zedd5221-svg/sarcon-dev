@@ -29,12 +29,17 @@ function RandomScrollTheme() {
 
         window.clearTimeout(finishTransitionTimer);
         root.classList.remove("random-scroll-flashing");
+        if (!nextDark) {
+          root.classList.remove("random-scroll-dark");
+          return;
+        }
+
         // Restart the CSS animation for every theme transition.
         void root.offsetWidth;
         root.classList.add("random-scroll-flashing");
 
         finishTransitionTimer = window.setTimeout(() => {
-          root.classList.toggle("random-scroll-dark", nextDark);
+          root.classList.add("random-scroll-dark");
           root.classList.remove("random-scroll-flashing");
         }, flashDuration);
       });
