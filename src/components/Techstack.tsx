@@ -14,13 +14,13 @@ const technologies: LogoItem[] = [
 	{ node: <TechIcon icon={<PenTool />} label="Figma" />, title: "Figma" },
 ];
 
-function TechIcon({ icon, label }: { icon: React.ReactNode; label: string }) {
+function TechIcon({ icon}: { icon: React.ReactNode; label: string }) {
 	return (
 		<div className="flex min-w-24 flex-col items-center gap-2 text-center">
 			<i className="not-italic" aria-hidden="true">
 				{icon}
 			</i>
-			<span className="font-semibold">{label}</span>
+			
 		</div>
 	);
 }

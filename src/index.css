@@ -19,5 +19,45 @@ body,
   
 }
 
+html,
+body,
+#root {
+  transition: color 70ms linear, background-color 70ms linear;
+}
+
+html.random-scroll-dark,
+html.random-scroll-dark body,
+html.random-scroll-dark #root {
+  color: #fff;
+  background-color: #000422;
+}
+
+html.random-scroll-flashing::after {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  background: #fff;
+  animation: scroll-theme-flash 140ms steps(1, end) 3;
+}
+
+@keyframes scroll-theme-flash {
+  0%,
+  44%,
+  100% { opacity: 0; }
+
+  45%,
+  72% { opacity: 0.92; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.random-scroll-flashing::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 
 

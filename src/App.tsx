@@ -3,12 +3,13 @@ import Navbar from "./components/ui/navbar";
 import Lanyard from "./components/Lanyard";
 import Hero from "./components/Hero";
 import Techstack from "./components/Techstack";
+import RandomScrollTheme from "./components/RandomScrollTheme";
 
 
 function App() {
   return (
     <main className="relative min-h-screen">
-      
+      <RandomScrollTheme />
 
       
           
@@ -29,7 +30,7 @@ function App() {
         </div>
       
       
-
+  
 
 
 
