@@ -1,5 +1,6 @@
 import { LogoLoop, type LogoItem } from "./LogoLoop";
 import { Braces, Code2, CodeXml, Component, Database, GitBranch, PenTool, Wind } from "lucide-react";
+import DecryptedText from "./DecryptedText";
 
 const technologies: LogoItem[] = [
 	{ node: <TechIcon icon={<CodeXml />} label="HTML" />, title: "HTML" },
@@ -42,7 +43,8 @@ function Techstack() {
 			</div>
             <div className="flex items-start justify-center p-4 md:p-16">
                 <p className="max-w-md text-xs font-light leading-tight text-justify sm:text-lg">
-                    These are the technologies I have experience with and have used in my projects. I am constantly learning and exploring new technologies to improve my skills and stay up-to-date with the latest trends in web development.
+					  <DecryptedText text="These are the technologies I have experience with and have used in my projects. I am constantly learning and exploring new technologies to improve my skills and stay up-to-date with the latest trends in web development.
+ " animateOn="theme" speed={30} maxIterations={8} />
                 </p>
             </div>
 		</section>

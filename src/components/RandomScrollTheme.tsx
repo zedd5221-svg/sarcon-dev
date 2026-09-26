@@ -12,6 +12,7 @@ function RandomScrollTheme() {
     let previousScrollY = window.scrollY;
     let frame = 0;
     let finishTransitionTimer = 0;
+    let isTransitioning = false;
 
     const handleScroll = () => {
       if (frame) return;
@@ -26,6 +27,7 @@ function RandomScrollTheme() {
         if (nextDark === isDark) return;
 
         isDark = nextDark;
+        if (isTransitioning) return;
 
         window.clearTimeout(finishTransitionTimer);
         root.classList.remove("random-scroll-flashing");
@@ -36,11 +38,13 @@ function RandomScrollTheme() {
 
         // Restart the CSS animation for every theme transition.
         void root.offsetWidth;
+        isTransitioning = true;
         root.classList.add("random-scroll-flashing");
 
         finishTransitionTimer = window.setTimeout(() => {
-          root.classList.add("random-scroll-dark");
+          root.classList.toggle("random-scroll-dark", isDark);
           root.classList.remove("random-scroll-flashing");
+          isTransitioning = false;
         }, flashDuration);
       });
     };
@@ -50,6 +54,7 @@ function RandomScrollTheme() {
       window.removeEventListener("scroll", handleScroll);
       if (frame) window.cancelAnimationFrame(frame);
       window.clearTimeout(finishTransitionTimer);
+      isTransitioning = false;
       root.classList.remove("random-scroll-flashing");
       root.classList.remove("random-scroll-dark");
     };
