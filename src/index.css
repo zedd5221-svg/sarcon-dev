@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oswald:wght@200..700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,14 +12,112 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #BF0404;
   background-color: #FAF7F3;
+  font-family: "Oswald", sans-serif;
+  
   
 }
 
-.NAME {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  color: #BF0404;
+html {
+  scroll-behavior: smooth;
 }
+
+html,
+body,
+#root {
+  transition: color 70ms linear, background-color 70ms linear;
+}
+
+html.random-scroll-dark,
+html.random-scroll-dark body,
+html.random-scroll-dark #root {
+  color: #fff;
+  background-color: #000422;
+}
+
+html.random-scroll-flashing::after {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  background: #fff;
+  animation: scroll-theme-flash 140ms steps(1, end) 3;
+}
+
+.three-box-loader {
+  position: relative;
+  width: 5.5rem;
+  height: 2rem;
+}
+
+.three-box-loader span {
+  position: absolute;
+  top: 50%;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 0.15rem;
+  background: #bf0404;
+}
+
+.three-box-loader span:nth-child(1) {
+  left: 0.4rem;
+  transform: translateY(-50%);
+  animation: three-box-jab-right 0.9s ease-in-out infinite;
+}
+
+.three-box-loader span:nth-child(2) {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: three-box-dodge 0.9s ease-in-out infinite;
+}
+
+.three-box-loader span:nth-child(3) {
+  right: 0.4rem;
+  transform: translateY(-50%);
+  animation: three-box-jab-left 0.9s ease-in-out infinite;
+}
+
+@keyframes three-box-jab-right {
+  0%, 100% { transform: translateY(-50%); }
+  25%, 45% { transform: translate(0.65rem, -65%) rotate(18deg); }
+  70% { transform: translateY(-50%) rotate(-8deg); }
+}
+
+@keyframes three-box-dodge {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  25%, 45% { transform: translate(-50%, -65%) scale(0.82); }
+  65% { transform: translate(-50%, -40%) scale(1.08); }
+}
+
+@keyframes three-box-jab-left {
+  0%, 50% { transform: translateY(-50%); }
+  72%, 90% { transform: translate(-0.65rem, -65%) rotate(-18deg); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scroll-theme-flash {
+  0%,
+  44%,
+  100% { opacity: 0; }
+
+  45%,
+  72% { opacity: 0.92; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .three-box-loader,
+  .three-box-loader span {
+    animation: none;
+  }
+
+  html.random-scroll-flashing::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+
 
