@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { LOOP_EVENT } from "./SmoothScroll";
 
 function RandomScrollTheme() {
   const [consent, setConsent] = useState<"pending" | "accepted" | "declined">("pending");
@@ -49,9 +50,18 @@ function RandomScrollTheme() {
       });
     };
 
+    // The endless scroll jumps back to the top; keep the current theme.
+    const handleLoop = () => {
+      window.requestAnimationFrame(() => {
+        previousScrollY = window.scrollY;
+      });
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener(LOOP_EVENT, handleLoop);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(LOOP_EVENT, handleLoop);
       if (frame) window.cancelAnimationFrame(frame);
       window.clearTimeout(finishTransitionTimer);
       isTransitioning = false;

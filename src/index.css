@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oswald:wght@200..700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -19,8 +18,17 @@ body,
   
 }
 
-html {
-  scroll-behavior: smooth;
+:root {
+  --page-bg: #FAF7F3;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+html.random-scroll-dark {
+  --page-bg: #000422;
 }
 
 html,
