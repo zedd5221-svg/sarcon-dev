@@ -11,7 +11,7 @@ const channels = [
   { label: "In person", value: "Cotabato, Philippines", href: undefined },
 ];
 const socials = [
-  { label: "GitHub", href: GITHUB },
+  { label: "GitHub", href: "https://github.com/zedd5221-svg" },
   { label: "LinkedIn", href: "https://www.linkedin.com/" },
   { label: "Facebook", href: "https://www.facebook.com/" },
 ];
