@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import { Bloom } from "./Flower";
 
 interface StatementProps {
   text: string;
@@ -36,7 +37,8 @@ function Statement({ text, cube }: StatementProps) {
 
   return (
     <div ref={ref} data-cube={cube} className="relative w-full border-y border-current/20 px-4 py-16 md:px-16 md:py-24">
-      <div className="mx-auto flex max-w-6xl items-start gap-4 md:gap-10">
+      <div className="relative mx-auto flex max-w-6xl items-start gap-4 md:gap-10">
+        <Bloom corners={["tl", "br"]} />
         <span data-square aria-hidden="true" className="mt-2 inline-block h-3 w-3 shrink-0 border border-current md:mt-4 md:h-4 md:w-4" />
         <p className="flex-1 text-center text-2xl leading-tight font-medium uppercase sm:text-4xl md:text-5xl">
           {text.split(" ").map((word, i) => (

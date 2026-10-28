@@ -2,13 +2,14 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ArrowUpRight } from "lucide-react";
 import DecryptedText from "./DecryptedText";
+import { Bloom } from "./Flower";
 
 // Edit this list as projects are finished. `href` is optional.
 const projects = [
   {
     title: "Portfolio",
     tagline: "This site.",
-    description: "React, TypeScript, GSAP and Three.js. Smooth endless scroll, a 3D cube that follows the page and a physics lanyard.",
+    description: "React, TypeScript, GSAP and Three.js. Smooth endless scroll, a 3D cube that follows the page and flowers that bloom when the lights go out and a physics lanyard.",
     tags: ["React", "TypeScript", "GSAP", "Three.js"],
     year: "2026",
     href: "https://github.com/zedd5221-svg/Portfolio-tsx",
@@ -55,7 +56,8 @@ function Projects() {
         {projects.map((project, i) => {
           const Wrapper = project.href ? "a" : "div";
           return (
-            <li key={project.title} data-project className="border-b border-current/20">
+            <li key={project.title} data-project className="relative border-b border-current/20">
+              <Bloom corners={i % 2 ? ["bl"] : ["br"]} delay={i * 120} />
               <Wrapper
                 {...(project.href ? { href: project.href, target: "_blank", rel: "noreferrer" } : {})}
                 className="group grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 py-8 md:grid-cols-[3rem_1.2fr_1fr_auto] md:items-center md:gap-8 md:py-12"

@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import DecryptedText from "./DecryptedText";
+import { Bloom } from "./Flower";
 
 interface SectionHeadingProps {
   id?: string;
@@ -80,6 +81,8 @@ function SectionHeading({ id, index, lines, label, cube }: SectionHeadingProps) 
         {["-left-1 -top-1", "-right-1 -top-1", "-left-1 -bottom-1", "-right-1 -bottom-1"].map((pos) => (
           <span key={pos} data-hud aria-hidden="true" className={`absolute h-2 w-2 border border-current bg-[var(--page-bg)] ${pos}`} />
         ))}
+
+        <Bloom size="h-12 w-12 md:h-20 md:w-20" />
 
         {/* Measurements */}
         <span data-hud aria-hidden="true" className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] tracking-widest whitespace-nowrap sm:text-xs">

@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import { Bloom } from "./Flower";
 
 const skills = [
   { title: "Frontend", text: "Responsive interfaces in React and TypeScript, styled with Tailwind and animated with GSAP." },
@@ -30,8 +31,9 @@ function Skills() {
   return (
     <div ref={ref} id="skills" className="relative w-full px-4 pb-24 md:px-16">
       <div className="grid grid-cols-1 border-t border-l border-current/20 sm:grid-cols-2 lg:grid-cols-3">
-        {skills.map((skill) => (
-          <article key={skill.title} data-skill className="group flex min-h-56 flex-col justify-between gap-8 border-r border-b border-current/20 p-6 md:p-8">
+        {skills.map((skill, i) => (
+          <article key={skill.title} data-skill className="group relative flex min-h-56 flex-col justify-between gap-8 border-r border-b border-current/20 p-6 md:p-8">
+            <Bloom corners={i % 2 ? ["tr", "bl"] : ["tl", "br"]} delay={i * 90} size="h-9 w-9 md:h-12 md:w-12" />
             <div className="flex items-center justify-between">
               <span className="inline-block h-4 w-4 border border-current transition-all duration-500 group-hover:rotate-45 group-hover:bg-current" aria-hidden="true" />
               <span className="inline-block h-4 w-4 border border-current transition-all duration-500 group-hover:-rotate-45 group-hover:bg-current" aria-hidden="true" />

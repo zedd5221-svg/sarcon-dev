@@ -115,10 +115,95 @@ html.random-scroll-flashing::after {
   72% { opacity: 0.92; }
 }
 
+/* Line-art flowers. Hidden until in view; blossom (lines draw in, petals
+   unfold) on the light theme and burn away when the page turns dark. */
+.bloom-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.bloom-petal {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.bloom-ember {
+  fill: #ffb347;
+  opacity: 0;
+}
+
+html:not(.random-scroll-dark) .bloom.in-view .bloom-line {
+  animation: blossom-draw 900ms cubic-bezier(0.65, 0, 0.35, 1) calc(var(--bloom-delay, 0ms) + var(--d, 0ms)) forwards;
+}
+
+html:not(.random-scroll-dark) .bloom.in-view .bloom-petal {
+  animation: blossom-unfold 1200ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--bloom-delay, 0ms) + var(--d, 0ms)) both;
+}
+
+html.random-scroll-dark .bloom.in-view:not(.burnt) svg {
+  animation: burn-glow 1300ms ease-out forwards;
+}
+
+html.random-scroll-dark .bloom.in-view:not(.burnt) .bloom-line {
+  animation: burn-line 1000ms ease-in calc(var(--d, 0ms) * 0.25) forwards;
+}
+
+html.random-scroll-dark .bloom.in-view:not(.burnt) .bloom-ember {
+  animation: burn-ember 1100ms ease-out calc(250ms + var(--d, 0ms)) forwards;
+}
+
+@keyframes blossom-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes blossom-unfold {
+  from { transform: scale(0.35) rotate(-30deg); }
+  to { transform: none; }
+}
+
+@keyframes burn-glow {
+  0% { filter: none; opacity: 1; }
+  20% { filter: drop-shadow(0 0 3px #ff7a00) drop-shadow(0 0 10px #ff3d00); }
+  70% { filter: drop-shadow(0 0 2px #ff3d00); opacity: 1; }
+  100% { filter: none; opacity: 0; }
+}
+
+@keyframes burn-line {
+  0% { stroke: #BF0404; stroke-dashoffset: 0; }
+  15% { stroke: #ffe08a; }
+  45% { stroke: #ff7a00; }
+  75% { stroke: #b32400; }
+  100% { stroke: #2b0800; stroke-dashoffset: -1; }
+}
+
+@keyframes burn-ember {
+  0% { opacity: 0; transform: none; }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-34px) scale(0.3); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .three-box-loader,
   .three-box-loader span {
     animation: none;
+  }
+
+  html:not(.random-scroll-dark) .bloom.in-view .bloom-line,
+  html:not(.random-scroll-dark) .bloom.in-view .bloom-petal {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  html.random-scroll-dark .bloom svg,
+  html.random-scroll-dark .bloom .bloom-line,
+  html.random-scroll-dark .bloom .bloom-ember {
+    animation: none;
+    opacity: 0;
   }
 
   html.random-scroll-flashing::after {
